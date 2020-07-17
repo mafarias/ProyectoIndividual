@@ -1,7 +1,13 @@
-from flask import flask 
+from flask import Flask,request,jsonify
+from flask_sqlalchemy import sqlalchemy
+from flask_marshmallow import Marshmallow
+import os
+#
+app = Flask (__name__)
 
-app = flask (__name__)
-
-if __name__ == '__main__':
-
-app.run(debug=True,port=4000)
+@app.route('/', methods=['GET'])
+def get():
+    return jsonify({'msg':'Hello World'})
+#
+if __name__ =='__main__':
+    app.run(debug=True)
